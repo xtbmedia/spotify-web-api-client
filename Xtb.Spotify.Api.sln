@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Client", "Xtb.Spotify.Api.Client\Xtb.Spotify.Api.Client.csproj", "{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Dto", "Xtb.Spotify.Api.Dto\Xtb.Spotify.Api.Dto.csproj", "{BF206058-D9D5-4736-B63D-ABB5E0F42D24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Interfaces", "Xtb.Sporify.Api.Interfaces\Xtb.Spotify.Api.Interfaces.csproj", "{562BB4F3-9180-48B3-925F-E6028E6291BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Tests", "Xtb.Spotify.Api.Tests\Xtb.Spotify.Api.Tests.csproj", "{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{C286F988-66B4-4260-822F-EAA691217FB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Sporify.Api.MvcClient", "Xtb.Sporify.Api.MvcClient\Xtb.Sporify.Api.MvcClient.csproj", "{0582A223-4E13-442E-825E-353DFC2B0BE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF206058-D9D5-4736-B63D-ABB5E0F42D24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF206058-D9D5-4736-B63D-ABB5E0F42D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF206058-D9D5-4736-B63D-ABB5E0F42D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF206058-D9D5-4736-B63D-ABB5E0F42D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562BB4F3-9180-48B3-925F-E6028E6291BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562BB4F3-9180-48B3-925F-E6028E6291BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562BB4F3-9180-48B3-925F-E6028E6291BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562BB4F3-9180-48B3-925F-E6028E6291BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0582A223-4E13-442E-825E-353DFC2B0BE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0582A223-4E13-442E-825E-353DFC2B0BE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0582A223-4E13-442E-825E-353DFC2B0BE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0582A223-4E13-442E-825E-353DFC2B0BE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99} = {C286F988-66B4-4260-822F-EAA691217FB0}
+		{BF206058-D9D5-4736-B63D-ABB5E0F42D24} = {C286F988-66B4-4260-822F-EAA691217FB0}
+		{562BB4F3-9180-48B3-925F-E6028E6291BE} = {C286F988-66B4-4260-822F-EAA691217FB0}
+		{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB} = {C286F988-66B4-4260-822F-EAA691217FB0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8984535-A575-445D-98EC-CF6533F6C9F2}
+	EndGlobalSection
+EndGlobal
