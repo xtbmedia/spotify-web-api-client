@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Xtb.Sporify.Api.Interfaces\Xtb.Spotify.Api.Interfaces.csproj" />
+    <ProjectReference Include="..\Xtb.Spotify.Api.Interfaces\Xtb.Spotify.Api.Interfaces.csproj" />
     <ProjectReference Include="..\Xtb.Spotify.Api.Dto\Xtb.Spotify.Api.Dto.csproj" />
   </ItemGroup>
 

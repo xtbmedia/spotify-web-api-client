@@ -1,6 +1,6 @@
 using System;
 
-namespace Xtb.Sporify.Api.MvcClient.Models
+namespace Xtb.Spotify.Api.MvcClient.Models
 {
     public class ErrorViewModel
     {

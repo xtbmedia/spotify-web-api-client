@@ -4,7 +4,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Xtb.Sporify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.Interfaces.Services;
 
 namespace Xtb.Spotify.Api.Client.Services
 {

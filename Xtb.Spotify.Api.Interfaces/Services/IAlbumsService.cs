@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xtb.Spotify.Api.Dto;
 
-namespace Xtb.Sporify.Api.Interfaces.Services
+namespace Xtb.Spotify.Api.Interfaces.Services
 {
     public interface IAlbumsService
     {

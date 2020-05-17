@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Xtb.Sporify.Api.Interfaces
+namespace Xtb.Spotify.Api.Interfaces
 {
     public interface IHttpService
     {

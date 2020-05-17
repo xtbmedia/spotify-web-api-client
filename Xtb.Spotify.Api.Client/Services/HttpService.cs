@@ -3,8 +3,8 @@ using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Xtb.Sporify.Api.Interfaces;
-using Xtb.Sporify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.Interfaces;
+using Xtb.Spotify.Api.Interfaces.Services;
 
 namespace Xtb.Spotify.Api.Client.Services
 {
@@ -13,9 +13,10 @@ namespace Xtb.Spotify.Api.Client.Services
         private readonly HttpClient client;
         private readonly ITokenService tokenService;
 
-        public HttpService()
+        public HttpService(ITokenService tokenService)
         {
             client = new HttpClient();
+            this.tokenService = tokenService;
         }
 
         public Task<HttpResponseMessage> GetAsync(Uri requestUri, CancellationToken cancellationToken)

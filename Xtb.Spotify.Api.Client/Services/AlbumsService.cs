@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Xtb.Sporify.Api.Interfaces;
-using Xtb.Sporify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.Interfaces;
+using Xtb.Spotify.Api.Interfaces.Services;
 using Xtb.Spotify.Api.Client.Exceptions;
 using Xtb.Spotify.Api.Dto;
 

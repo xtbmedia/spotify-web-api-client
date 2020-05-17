@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Xtb.Sporify.Api.Interfaces.Services
+namespace Xtb.Spotify.Api.Interfaces.Services
 {
     public interface ITokenService
     {

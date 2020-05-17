@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Xtb.Sporify.Api.Interfaces;
-using Xtb.Sporify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.Interfaces;
+using Xtb.Spotify.Api.Interfaces.Services;
 using Xtb.Spotify.Api.Client.Services;
 
 namespace Microsoft.Extensions.DependencyInjection

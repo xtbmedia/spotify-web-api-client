@@ -5,8 +5,8 @@ using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Xtb.Sporify.Api.Interfaces;
-using Xtb.Sporify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.Interfaces;
+using Xtb.Spotify.Api.Interfaces.Services;
 using Xtb.Spotify.Api.Client.Exceptions;
 using Xtb.Spotify.Api.Dto;
 
@@ -32,7 +32,6 @@ namespace Xtb.Spotify.Api.Client.Services
 
         public string GetTokenRequestRedirectUri()
         {
-            var scopes = "";
             var uri = $"https://accounts.spotify.com/authorize"
                 + $"?response_type=code"
                 + $"&client_id={clientId}"

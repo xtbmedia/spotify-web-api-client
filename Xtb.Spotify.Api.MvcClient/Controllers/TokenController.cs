@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Xtb.Sporify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.Interfaces.Services;
 using Xtb.Spotify.Api.Client.Services;
 using Xtb.Spotify.Api.Dto;
 
-namespace Xtb.Sporify.Api.MvcClient.Controllers
+namespace Xtb.Spotify.Api.MvcClient.Controllers
 {
     public class TokenController : Controller
     {

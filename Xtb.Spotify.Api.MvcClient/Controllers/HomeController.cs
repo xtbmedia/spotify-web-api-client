@@ -2,11 +2,11 @@
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xtb.Sporify.Api.Interfaces.Services;
-using Xtb.Sporify.Api.MvcClient.Models;
+using Xtb.Spotify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.MvcClient.Models;
 using Xtb.Spotify.Api.Client.Services;
 
-namespace Xtb.Sporify.Api.MvcClient.Controllers
+namespace Xtb.Spotify.Api.MvcClient.Controllers
 {
     public class HomeController : Controller
     {

@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Xtb.Sporify.Api.MvcClient
+namespace Xtb.Spotify.Api.MvcClient
 {
     public class Program
     {

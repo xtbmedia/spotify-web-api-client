@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Client", "Xtb.Spotify.Api.Client\Xtb.Spotify.Api.Client.csproj", "{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xtb.Spotify.Api.Client", "Xtb.Spotify.Api.Client\Xtb.Spotify.Api.Client.csproj", "{4103A1A9-F0B1-4064-95FB-D2BF7D1D1F99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Dto", "Xtb.Spotify.Api.Dto\Xtb.Spotify.Api.Dto.csproj", "{BF206058-D9D5-4736-B63D-ABB5E0F42D24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xtb.Spotify.Api.Dto", "Xtb.Spotify.Api.Dto\Xtb.Spotify.Api.Dto.csproj", "{BF206058-D9D5-4736-B63D-ABB5E0F42D24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Interfaces", "Xtb.Sporify.Api.Interfaces\Xtb.Spotify.Api.Interfaces.csproj", "{562BB4F3-9180-48B3-925F-E6028E6291BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xtb.Spotify.Api.Interfaces", "Xtb.Spotify.Api.Interfaces\Xtb.Spotify.Api.Interfaces.csproj", "{562BB4F3-9180-48B3-925F-E6028E6291BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Tests", "Xtb.Spotify.Api.Tests\Xtb.Spotify.Api.Tests.csproj", "{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xtb.Spotify.Api.Tests", "Xtb.Spotify.Api.Tests\Xtb.Spotify.Api.Tests.csproj", "{C6C6AC79-A4E0-4D54-BABA-DF598D29EBDB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{C286F988-66B4-4260-822F-EAA691217FB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Sporify.Api.MvcClient", "Xtb.Sporify.Api.MvcClient\Xtb.Sporify.Api.MvcClient.csproj", "{0582A223-4E13-442E-825E-353DFC2B0BE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xtb.Spotify.Api.MvcClient", "Xtb.Spotify.Api.MvcClient\Xtb.Spotify.Api.MvcClient.csproj", "{0582A223-4E13-442E-825E-353DFC2B0BE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Xtb.Sporify.Api.MvcClient
+namespace Xtb.Spotify.Api.MvcClient
 {
     public class Startup
     {
