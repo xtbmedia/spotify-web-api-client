@@ -11,18 +11,23 @@ namespace Xtb.Spotify.Api.MvcClient.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> logger;
-        private readonly IAlbumsService albumsService;
+        private readonly IUserService userService;
         private readonly ITokenService tokenService;
 
-        public HomeController(ILogger<HomeController> logger, IAlbumsService albumsService, ITokenService tokenService)
+        public HomeController(ILogger<HomeController> logger, IUserService userService, ITokenService tokenService)
         {
             this.logger = logger;
-            this.albumsService = albumsService;
+            this.userService = userService;
             this.tokenService = tokenService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var token = tokenService.GetToken();
+            if (token == null)
+                return RedirectToAction("Auth", "Token");
+
+            var user = await userService.GetCurrentUser(tokenService.GetToken());
             return View();
         }
 

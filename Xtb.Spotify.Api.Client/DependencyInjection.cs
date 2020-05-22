@@ -12,9 +12,10 @@ namespace Microsoft.Extensions.DependencyInjection
         public static void AddSpotifyApiClient(this IServiceCollection services)
         {
             services.AddTransient<IHttpService, HttpService>();
-            services.AddTransient<IAlbumsService, AlbumsService>();
+            services.AddTransient<IAlbumService, AlbumService>();
             services.AddSingleton<ITokenService, TokenService>();
             services.AddTransient<ITokenPostService, TokenPostService>();
+            services.AddTransient<IUserService, UserService>();
         }
     }
 }

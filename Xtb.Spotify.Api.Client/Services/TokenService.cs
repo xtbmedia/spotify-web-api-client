@@ -54,6 +54,14 @@ namespace Xtb.Spotify.Api.Client.Services
             token = JsonConvert.DeserializeObject<TokenGrant>(content);
         }
 
+        public async Task RefreshToken()
+        {
+            if (token == null)
+                return;
+
+            await RequestToken(token.RefreshToken);
+        }
+
         public string GetToken()
         {
             return token?.AccessToken;

@@ -11,13 +11,13 @@ using Xtb.Spotify.Api.Dto;
 
 namespace Xtb.Spotify.Api.Client.Services
 {
-    public class AlbumsService : IAlbumsService
+    public class AlbumService : IAlbumService
     {
         private readonly IHttpService httpService;
         private readonly ITokenService tokenService;
-        private const string ApiEndpoint = "https://api.spoitfy.com/v1/albums";
+        private readonly string ApiEndpoint = "https://api.spotify.com/v1/albums";
 
-        public AlbumsService(IHttpService httpService, ITokenService tokenService)
+        public AlbumService(IHttpService httpService, ITokenService tokenService)
         {
             this.httpService = httpService;
             this.tokenService = tokenService;
@@ -26,7 +26,7 @@ namespace Xtb.Spotify.Api.Client.Services
         public async Task<Album> GetAlbum(string albumId)
         {
             var builder = new UriBuilder($"{ApiEndpoint}/{albumId}");
-            var response = await httpService.GetAsync(builder.Uri, CancellationToken.None);
+            var response = await httpService.GetAsync(builder.Uri, tokenService.GetToken(), CancellationToken.None);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
@@ -43,7 +43,7 @@ namespace Xtb.Spotify.Api.Client.Services
             var builder = new UriBuilder($"{ApiEndpoint}/");
             var query = string.Join(',', albumIds);
             builder.Query = query;
-            var response = await httpService.GetAsync(builder.Uri, CancellationToken.None);
+            var response = await httpService.GetAsync(builder.Uri, tokenService.GetToken(), CancellationToken.None);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
@@ -64,7 +64,7 @@ namespace Xtb.Spotify.Api.Client.Services
         {
             var builder = new UriBuilder($"{ApiEndpoint}/{albumId}/tracks/");
             builder.Query = $"offset={offset}&limit={limit}";
-            var response = await httpService.GetAsync(builder.Uri, CancellationToken.None);
+            var response = await httpService.GetAsync(builder.Uri,tokenService.GetToken(), CancellationToken.None);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
