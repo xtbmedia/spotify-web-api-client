@@ -1,13 +1,20 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OAuth;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Security.Claims;
+using Xtb.Spotify.Api.Authentication;
 using Xtb.Spotify.Api.Interfaces.Services;
 
 namespace Xtb.Spotify.Api.MvcClient
@@ -24,7 +31,11 @@ namespace Xtb.Spotify.Api.MvcClient
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews(options =>
+            {
+                options.Filters.Add(new AuthorizeFilter(SpotifyAuthenticationDefaults.AuthorizationPolicy));
+            });
+
             services.AddSpotifyAuthentiation();
             // HACK: This is what AddSpotifyAuthentiation() is supposed to do
             // but there's a version mismatch that I'll sort later that
@@ -35,12 +46,18 @@ namespace Xtb.Spotify.Api.MvcClient
                     {
                         options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                         options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                        options.DefaultChallengeScheme = "Spotify";
-                        options.DefaultScheme = "Spotify";
+                        options.DefaultChallengeScheme = SpotifyAuthenticationDefaults.AuthenticationScheme;
+                        options.DefaultScheme = SpotifyAuthenticationDefaults.AuthenticationScheme;
                     }
                 )
-                .AddCookie()
-                .AddOAuth("Spotify", options =>
+                .AddCookie(options =>
+                {
+                    options.Cookie.HttpOnly = true;
+                    options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+                    options.Cookie.SameSite = SameSiteMode.Lax;
+
+                })
+                .AddOAuth(SpotifyAuthenticationDefaults.AuthenticationScheme, options =>
                 {
                     options.AuthorizationEndpoint = "https://accounts.spotify.com/authorize";
                     options.CallbackPath = "/auth/grant";
@@ -75,7 +92,8 @@ namespace Xtb.Spotify.Api.MvcClient
                         }
                     };
                     options.Validate();
-                });
+                })
+                .AddExternalCookie();
             services.AddSpotifyApiClient();
         }
 
