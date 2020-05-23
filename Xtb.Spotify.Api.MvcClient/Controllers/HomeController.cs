@@ -23,7 +23,8 @@ namespace Xtb.Spotify.Api.MvcClient.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("Item", "Albums", new { id = "6019qvnF1CbqBi32pAiV35" });
+            return View();
+            // return RedirectToAction("Item", "Albums", new { id = "6019qvnF1CbqBi32pAiV35" });
         }
 
         public IActionResult Privacy()

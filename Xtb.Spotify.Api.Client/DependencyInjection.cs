@@ -15,6 +15,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IAlbumService, AlbumService>();
             services.AddSingleton<ITokenService, TokenService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IPlaylistService, PlaylistService>();
         }
     }
 }

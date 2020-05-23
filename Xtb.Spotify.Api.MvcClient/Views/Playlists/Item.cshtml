@@ -1,0 +1,33 @@
+﻿@model Xtb.Spotify.Api.Dto.Playlist;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<h1>@Model.Name</h1>
+
+<div class="row">
+    <div class="col-2">
+        <img src="@Model.Images.First()?.Url" class="img-thumbnail box-shadow" />
+    </div>
+    <div class="col-10">
+        @foreach (var track in Model.Tracks.Items)
+        {
+            <div class="row">
+                <div class="col-1">
+                    @track.Track.TrackNumber
+                </div>
+                <div class="col-4">
+                    <audio controls preload="metadata">
+                        <source src="@track.Track.PreviewUrl" />
+                    </audio>
+                </div>
+                <div class="col-5">
+                    @track.Track.Name
+                </div>
+                <div class="col-2">
+                    @track.Track.DurationMs ms
+                </div>
+            </div>
+        }
+    </div>
+</div>
