@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Xtb.Spotify.Api.Authentication\Xtb.Spotify.Api.Authentication.csproj" />
     <ProjectReference Include="..\Xtb.Spotify.Api.Client\Xtb.Spotify.Api.Client.csproj" />
   </ItemGroup>
 

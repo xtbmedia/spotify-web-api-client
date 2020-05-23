@@ -14,7 +14,6 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IHttpService, HttpService>();
             services.AddTransient<IAlbumService, AlbumService>();
             services.AddSingleton<ITokenService, TokenService>();
-            services.AddTransient<ITokenPostService, TokenPostService>();
             services.AddTransient<IUserService, UserService>();
         }
     }

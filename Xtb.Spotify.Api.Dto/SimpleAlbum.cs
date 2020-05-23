@@ -10,7 +10,7 @@ namespace Xtb.Spotify.Api.Dto
         public string AlbumType { get; set; }
         public IEnumerable<SimpleArtist> Artists { get; set; }
         public IEnumerable<string> AvailableMarkets { get; set; }
-        public IEnumerable<ExternalUrl> ExternalUrls { get; set; }
+        public ExternalUrl ExternalUrls { get; set; }
         public string Href { get; set; }
         public string Id { get; set; }
         public IEnumerable<Image> Images { get; set; }

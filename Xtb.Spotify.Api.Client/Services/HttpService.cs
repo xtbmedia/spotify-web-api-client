@@ -30,7 +30,7 @@ namespace Xtb.Spotify.Api.Client.Services
         {
             var json = JsonConvert.SerializeObject(body);
             var content = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(json));
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", authToken);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
             return client.PostAsync(requestUri, content, cancellationToken);
         }
 
@@ -38,13 +38,13 @@ namespace Xtb.Spotify.Api.Client.Services
         {
             var json = JsonConvert.SerializeObject(body);
             var content = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(json));
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", authToken);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
             return client.PutAsync(requestUri, content, cancellationToken);
         }
 
         public Task<HttpResponseMessage> DeleteAsync<T>(Uri requestUri, string authToken, CancellationToken cancellationToken)
         {
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", authToken);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
             return client.DeleteAsync(requestUri, cancellationToken);
         }
     }

@@ -8,6 +8,7 @@ using Xtb.Spotify.Api.Interfaces;
 using Xtb.Spotify.Api.Interfaces.Services;
 using Xtb.Spotify.Api.Client.Exceptions;
 using Xtb.Spotify.Api.Dto;
+using System.Text.Json;
 
 namespace Xtb.Spotify.Api.Client.Services
 {
@@ -26,7 +27,7 @@ namespace Xtb.Spotify.Api.Client.Services
         public async Task<Album> GetAlbum(string albumId)
         {
             var builder = new UriBuilder($"{ApiEndpoint}/{albumId}");
-            var response = await httpService.GetAsync(builder.Uri, tokenService.GetToken(), CancellationToken.None);
+            var response = await httpService.GetAsync(builder.Uri, tokenService.ApiToken, CancellationToken.None);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
@@ -43,7 +44,7 @@ namespace Xtb.Spotify.Api.Client.Services
             var builder = new UriBuilder($"{ApiEndpoint}/");
             var query = string.Join(',', albumIds);
             builder.Query = query;
-            var response = await httpService.GetAsync(builder.Uri, tokenService.GetToken(), CancellationToken.None);
+            var response = await httpService.GetAsync(builder.Uri, tokenService.ApiToken, CancellationToken.None);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)
@@ -64,7 +65,7 @@ namespace Xtb.Spotify.Api.Client.Services
         {
             var builder = new UriBuilder($"{ApiEndpoint}/{albumId}/tracks/");
             builder.Query = $"offset={offset}&limit={limit}";
-            var response = await httpService.GetAsync(builder.Uri,tokenService.GetToken(), CancellationToken.None);
+            var response = await httpService.GetAsync(builder.Uri,tokenService.ApiToken, CancellationToken.None);
             var content = await response.Content.ReadAsStringAsync();
 
             if (!response.IsSuccessStatusCode)

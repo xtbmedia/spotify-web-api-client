@@ -7,9 +7,6 @@ namespace Xtb.Spotify.Api.Interfaces.Services
 {
     public interface ITokenService
     {
-        string GetToken();
-        string GetTokenRequestRedirectUri();
-        Task RefreshToken();
-        Task RequestToken(string code);
+        string ApiToken { get; set; }
     }
 }
