@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection.Emit;
 using Xtb.Spotify.Api.Dto.Interfaces;
 
 namespace Xtb.Spotify.Api.Dto
@@ -59,7 +57,7 @@ namespace Xtb.Spotify.Api.Dto
         /// External URLs for this track.
         /// </summary>
         [JsonProperty("external_urls")]
-        public ExternalUrl ExternalUrls {get;set;}
+        public ExternalUrl ExternalUrls { get; set; }
 
         /// <summary>
         /// A link to the Web API endpoint providing full

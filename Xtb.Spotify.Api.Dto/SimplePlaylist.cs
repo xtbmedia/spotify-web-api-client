@@ -1,9 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using System;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
 using Xtb.Spotify.Api.Dto.Interfaces;
 
 namespace Xtb.Spotify.Api.Dto

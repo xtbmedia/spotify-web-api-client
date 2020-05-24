@@ -1,13 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
-using System.Threading.Tasks;
-using Xtb.Spotify.Api.Interfaces.Services;
 using Xtb.Spotify.Api.MvcClient.Models;
-using Xtb.Spotify.Api.Client.Services;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace Xtb.Spotify.Api.MvcClient.Controllers
 {

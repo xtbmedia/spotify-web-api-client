@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xtb.Spotify.Api.Client.Providers
+﻿namespace Xtb.Spotify.Api.Client.Providers
 {
     public class EndpointProvider
     {

@@ -1,16 +1,14 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
-using System;
 using System.Collections.Generic;
 using System.Security.Claims;
-using System.Text;
 
 namespace Xtb.Spotify.Api.Authentication
 {
     public static class SpotifyAuthenticationDefaults
     {
-        private static AuthorizationPolicy authorizationPolicy;
-        
+        private static readonly AuthorizationPolicy authorizationPolicy;
+
         public static string AuthenticationScheme = "Spotify";
         public static AuthorizationPolicy AuthorizationPolicy => authorizationPolicy;
 

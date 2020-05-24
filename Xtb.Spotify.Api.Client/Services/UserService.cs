@@ -1,11 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Xtb.Spotify.Api.Client.Exceptions;
 using Xtb.Spotify.Api.Client.Providers;
 using Xtb.Spotify.Api.Dto;
 using Xtb.Spotify.Api.Interfaces.Services;
@@ -15,7 +10,7 @@ namespace Xtb.Spotify.Api.Client.Services
     public class UserService : SpotifyApiService, IUserService
     {
         public UserService(IHttpService httpService, ITokenReaderService tokenService, EndpointProvider endpointProvider, SerialisationSettingsProvider serialisationSettingsProvider)
-            :base(httpService, tokenService, endpointProvider, serialisationSettingsProvider)
+            : base(httpService, tokenService, endpointProvider, serialisationSettingsProvider)
         {
         }
 

@@ -1,5 +1,3 @@
-using System;
-
 namespace Xtb.Spotify.Api.MvcClient.Models
 {
     public class ErrorViewModel

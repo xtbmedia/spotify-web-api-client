@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xtb.Spotify.Api.Interfaces.Services;
+﻿using Xtb.Spotify.Api.Client.Providers;
 using Xtb.Spotify.Api.Client.Services;
-using Xtb.Spotify.Api.Client.Providers;
+using Xtb.Spotify.Api.Interfaces.Services;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

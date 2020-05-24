@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
 using Xtb.Spotify.Api.Dto.Interfaces;
 
 namespace Xtb.Spotify.Api.Dto

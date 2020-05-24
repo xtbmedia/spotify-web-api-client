@@ -1,10 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Xtb.Spotify.Api.Client.Exceptions;
 using Xtb.Spotify.Api.Client.Providers;
 using Xtb.Spotify.Api.Dto;
 using Xtb.Spotify.Api.Interfaces.Services;

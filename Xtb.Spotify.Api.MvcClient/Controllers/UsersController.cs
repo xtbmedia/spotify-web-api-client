@@ -9,7 +9,7 @@ namespace Xtb.Spotify.Api.MvcClient.Controllers
     [Authorize]
     public class UsersController : Controller
     {
-        private IPlaylistService playlistService;
+        private readonly IPlaylistService playlistService;
 
         public UsersController(IPlaylistService playlistService)
         {
