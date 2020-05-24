@@ -83,11 +83,12 @@ namespace Xtb.Spotify.Api.MvcClient
                             var response = await context.Backchannel.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, context.HttpContext.RequestAborted);
                             response.EnsureSuccessStatusCode();
 
-                            var user = System.Text.Json.JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+                            var content = await response.Content.ReadAsStringAsync();
+                            var user = System.Text.Json.JsonDocument.Parse(content);
 
                             context.RunClaimActions(user.RootElement);
 
-                            var tokenService = context.HttpContext.RequestServices.GetService<ITokenService>();
+                            var tokenService = context.HttpContext.RequestServices.GetService<ITokenWriterService>();
                             tokenService.ApiToken = context.AccessToken;
                         }
                     };

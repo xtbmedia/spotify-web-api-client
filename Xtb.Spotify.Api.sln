@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{C286F988-66B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xtb.Spotify.Api.MvcClient", "Xtb.Spotify.Api.MvcClient\Xtb.Spotify.Api.MvcClient.csproj", "{0582A223-4E13-442E-825E-353DFC2B0BE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xtb.Spotify.Api.Authentication", "Xtb.Spotify.Api.Authentication\Xtb.Spotify.Api.Authentication.csproj", "{325311A9-2FDA-4021-9F71-493434C6CE3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xtb.Spotify.Api.Authentication", "Xtb.Spotify.Api.Authentication\Xtb.Spotify.Api.Authentication.csproj", "{325311A9-2FDA-4021-9F71-493434C6CE3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

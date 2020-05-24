@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace Xtb.Spotify.Api.Interfaces.Services
 {
-    public interface ITokenService
+    public interface ITokenWriterService
     {
-        string ApiToken { get; set; }
+        string ApiToken { set; }
     }
 }

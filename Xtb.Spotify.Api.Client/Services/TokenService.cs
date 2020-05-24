@@ -12,7 +12,7 @@ using Xtb.Spotify.Api.Dto;
 
 namespace Xtb.Spotify.Api.Client.Services
 {
-    public class TokenService : ITokenService
+    public class TokenService : ITokenReaderService, ITokenWriterService
     {
         public string ApiToken { get; set; }
     }

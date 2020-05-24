@@ -10,5 +10,6 @@ namespace Xtb.Spotify.Api.Interfaces.Services
     {
         Task<Page<SimplePlaylist>> GetPlaylistsForCurrentUser();
         Task<Playlist> GetPlaylist(string playlistId);
+        Task<Page<SimplePlaylist>> GetPlaylistsForUser(string userId);
     }
 }
