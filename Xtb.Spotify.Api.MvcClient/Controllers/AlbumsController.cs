@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Xtb.Spotify.Api.Interfaces.Services;
 
 namespace Xtb.Spotify.Api.MvcClient.Controllers
 {
+    [Authorize]
     public class AlbumsController : Controller
     {
         private readonly IAlbumService albumService;

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 using Xtb.Spotify.Api.Interfaces.Services;
 
 namespace Xtb.Spotify.Api.MvcClient.Controllers
 {
     [Route("users")]
+    [Authorize]
     public class UsersController : Controller
     {
         private IPlaylistService playlistService;
