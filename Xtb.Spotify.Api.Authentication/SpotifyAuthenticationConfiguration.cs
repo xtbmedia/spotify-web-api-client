@@ -10,25 +10,18 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class SpotifyAuthenticationConfiguration
     {
-        public static void AddSpotifyAuthentiation(this IServiceCollection services)
+        public static void AddSpotifyAuthentiation(this AuthenticationBuilder builder, SpotifyAuthenticationOptions spotifyAuthenticationOptions)
         {
-            services.AddAuthentication(
-                        options =>
-                        {
-                            options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                            options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                            options.DefaultChallengeScheme = SpotifyAuthenticationDefaults.AuthenticationScheme;
-                        }
-                )
-                .AddCookie()
-                .AddOAuth(SpotifyAuthenticationDefaults.AuthenticationScheme, options =>
+            var defaults = SpotifyAuthenticationOptions.Default;
+
+            builder.AddOAuth(SpotifyAuthenticationDefaults.AuthenticationScheme, options =>
                 {
-                    options.AuthorizationEndpoint = "https://accounts.spotify.com/authorize";
-                    options.CallbackPath = "/auth/grant";
-                    options.ClientId = "0b361c2fdde54ae5ba312d12019f1e10";
-                    options.ClientSecret = "9b796b357790441e8e724fa60fadc6a7";
-                    options.TokenEndpoint = "https://accounts.spotify.com/api/token";
-                    options.UserInformationEndpoint = "https://api.spotify.com/v1/me";
+                    options.AuthorizationEndpoint = spotifyAuthenticationOptions?.AuthorizationEndpoint ?? defaults.AuthorizationEndpoint;
+                    options.CallbackPath = spotifyAuthenticationOptions?.CallbackPath ?? defaults.CallbackPath;
+                    options.ClientId = spotifyAuthenticationOptions?.ClientId ?? defaults.ClientId;
+                    options.ClientSecret = spotifyAuthenticationOptions.ClientSecret ?? defaults.ClientSecret;
+                    options.TokenEndpoint = spotifyAuthenticationOptions?.TokenEndpoint ?? defaults.TokenEndpoint;
+                    options.UserInformationEndpoint = spotifyAuthenticationOptions?.UserInformationEndpoint ?? defaults.UserInformationEndpoint;
 
                     options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "display_name");
                     options.ClaimActions.MapJsonKey(ClaimTypes.Name, "display_name");
