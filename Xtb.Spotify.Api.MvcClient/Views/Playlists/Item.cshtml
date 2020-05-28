@@ -3,13 +3,27 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-<h1>@Model.Name</h1>
+<form asp-action="Update">
+    <div class="input-group input-group-lg">
+        <input type="hidden" asp-for="Id" />
+        <input type="text" asp-for="Name" class="form-control" />
+        <div class="input-group-append">
+            <input type="submit" class="button" value="Update" />
+        </div>
+    </div>
+</form>
 
 <div class="row">
     <div class="col-2">
         <img src="@Model.Images.First()?.Url" class="img-thumbnail box-shadow" />
     </div>
     <div class="col-10">
+        <form asp-action="AddItem">
+            <input type="hidden" asp-for="Id" />
+            <input type="text" name="trackUri" />
+            <input type="submit" />
+        </form>
+        <hr />
         @foreach (var track in Model.Tracks.Items)
         {
             <div class="row">

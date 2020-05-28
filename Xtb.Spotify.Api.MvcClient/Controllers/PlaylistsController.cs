@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xtb.Spotify.Api.Interfaces.Services;
 
@@ -24,7 +25,20 @@ namespace Xtb.Spotify.Api.MvcClient.Controllers
         public async Task<IActionResult> Item(string id)
         {
             var playlist = await playlistService.GetPlaylist(id);
+            var items = await playlistService.GetPlaylistItems(id);
             return View(playlist);
+        }
+
+        public async Task<IActionResult> AddItem(string id, string trackUri)
+        {
+            await playlistService.AddPlaylistItems(id, new List<string> { trackUri });
+            return RedirectToAction(nameof(Item), new { id = id });
+        }
+
+        public async Task<IActionResult> Update(string id, string name)
+        {
+            await playlistService.UpdatePlaylist(id, name);
+            return RedirectToAction(nameof(Item), new { id = id });
         }
     }
 }
