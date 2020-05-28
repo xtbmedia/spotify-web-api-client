@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace Xtb.Spotify.Api.Client.Providers
 {
@@ -11,7 +12,11 @@ namespace Xtb.Spotify.Api.Client.Providers
             Settings = new JsonSerializerSettings
             {
                 MissingMemberHandling = MissingMemberHandling.Ignore,
-                NullValueHandling = NullValueHandling.Ignore
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver
+                {
+                    NamingStrategy = new SnakeCaseNamingStrategy()
+                }
             };
         }
     }

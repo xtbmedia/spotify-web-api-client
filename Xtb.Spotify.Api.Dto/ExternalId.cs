@@ -10,13 +10,11 @@ namespace Xtb.Spotify.Api.Dto
         /// - "ean" - International Article Number
         /// - "upc" - Universal Product Code
         /// </summary>
-        [JsonProperty("key")]
         public string Key { get; set; }
 
         /// <summary>
         /// An external identifier for the object.
         /// </summary>
-        [JsonProperty("value")]
         public string Value { get; set; }
     }
 }
