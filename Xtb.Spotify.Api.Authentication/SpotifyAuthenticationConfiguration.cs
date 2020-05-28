@@ -22,6 +22,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     options.ClientSecret = spotifyAuthenticationOptions.ClientSecret ?? defaults.ClientSecret;
                     options.TokenEndpoint = spotifyAuthenticationOptions?.TokenEndpoint ?? defaults.TokenEndpoint;
                     options.UserInformationEndpoint = spotifyAuthenticationOptions?.UserInformationEndpoint ?? defaults.UserInformationEndpoint;
+                    foreach (var item in SpotifyAuthorizationScopes.All)
+                        options.Scope.Add(item);
 
                     options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier, "display_name");
                     options.ClaimActions.MapJsonKey(ClaimTypes.Name, "display_name");
