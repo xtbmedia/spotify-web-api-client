@@ -26,6 +26,7 @@ namespace Xtb.Spotify.Api.MvcClient.Controllers
         {
             var playlist = await playlistService.GetPlaylist(id);
             var items = await playlistService.GetPlaylistItems(id);
+            var images = await playlistService.GetCoverImages(id);
             return View(playlist);
         }
 
