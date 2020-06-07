@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xtb.Spotify.Api.Client.Providers;
 using Xtb.Spotify.Api.Client.Services;
 using Xtb.Spotify.Api.Interfaces.Services;
+using Xtb.Spotify.Api.Tests.Factories;
 using Xtb.Spotify.Api.Tests.Implementations;
 
 namespace Xtb.Spotify.Api.Tests
@@ -18,75 +19,59 @@ namespace Xtb.Spotify.Api.Tests
         public async Task GetCoverImagesRequestCorrect()
         {
             // Arrange
-            var settingsProvider = new SerialisationSettingsProvider();
-            var endpointProvider = new EndpointProvider();
-            var httpService = new FakeHttpService(settingsProvider);
-            var tokenService = new FakeTokenService(Guid.NewGuid().ToString());
-            var subject = new PlaylistService(httpService, tokenService, endpointProvider, settingsProvider);
+            var subject = PlaylistServiceFactory.CreateForUnitTest();
             var id = Guid.NewGuid().ToString();
 
             // Act
             var test = await subject.GetCoverImages(id);
 
             // Assert
-            Assert.AreEqual($"{endpointProvider.Playlists}/{id}/images", httpService.Uri);
-            Assert.AreEqual(tokenService.ApiToken, httpService.Token);
+            Assert.AreEqual($"{PlaylistServiceFactory.EndpointProvider.Playlists}/{id}/images", PlaylistServiceFactory.HttpService.Uri);
+            Assert.AreEqual(PlaylistServiceFactory.TokenService.ApiToken, PlaylistServiceFactory.HttpService.Token);
         }
 
         [TestMethod]
         public async Task GetPlaylistsForCurrentUserRequestCorrect()
         {
             // Arrange
-            var settingsProvider = new SerialisationSettingsProvider();
-            var endpointProvider = new EndpointProvider();
-            var httpService = new FakeHttpService(settingsProvider);
-            var tokenService = new FakeTokenService(Guid.NewGuid().ToString());
-            var subject = new PlaylistService(httpService, tokenService, endpointProvider, settingsProvider);
+            var subject = PlaylistServiceFactory.CreateForUnitTest();
 
             // Act
             var test = await subject.GetPlaylistsForCurrentUser();
 
             // Assert
-            Assert.AreEqual($"{endpointProvider.Me}/playlists", httpService.Uri);
-            Assert.AreEqual(tokenService.ApiToken, httpService.Token);
+            Assert.AreEqual($"{PlaylistServiceFactory.EndpointProvider.Me}/playlists", PlaylistServiceFactory.HttpService.Uri);
+            Assert.AreEqual(PlaylistServiceFactory.TokenService.ApiToken, PlaylistServiceFactory.HttpService.Token);
         }
 
         [TestMethod]
         public async Task GetPlaylistRequestCorrect()
         {
             // Arrange
-            var settingsProvider = new SerialisationSettingsProvider();
-            var endpointProvider = new EndpointProvider();
-            var httpService = new FakeHttpService(settingsProvider);
-            var tokenService = new FakeTokenService(Guid.NewGuid().ToString());
-            var subject = new PlaylistService(httpService, tokenService, endpointProvider, settingsProvider);
+            var subject = PlaylistServiceFactory.CreateForUnitTest();
             var id = Guid.NewGuid().ToString();
 
             // Act
             var test = await subject.GetPlaylist(id);
 
             // Assert
-            Assert.AreEqual($"{endpointProvider.Playlists}/{id}", httpService.Uri);
-            Assert.AreEqual(tokenService.ApiToken, httpService.Token);
+            Assert.AreEqual($"{PlaylistServiceFactory.EndpointProvider.Playlists}/{id}", PlaylistServiceFactory.HttpService.Uri);
+            Assert.AreEqual(PlaylistServiceFactory.TokenService.ApiToken, PlaylistServiceFactory.HttpService.Token);
         }
 
         [TestMethod]
         public async Task GetPlaylistsForUserRequestCorrect()
         {
             // Arrange
-            var settingsProvider = new SerialisationSettingsProvider();
-            var endpointProvider = new EndpointProvider();
-            var httpService = new FakeHttpService(settingsProvider);
-            var tokenService = new FakeTokenService(Guid.NewGuid().ToString());
-            var subject = new PlaylistService(httpService, tokenService, endpointProvider, settingsProvider);
+            var subject = PlaylistServiceFactory.CreateForUnitTest();
             var id = Guid.NewGuid().ToString();
 
             // Act
             var test = await subject.GetPlaylistsForUser(id);
 
             // Assert
-            Assert.AreEqual($"{endpointProvider.Users}/{id}/playlists", httpService.Uri);
-            Assert.AreEqual(tokenService.ApiToken, httpService.Token);
+            Assert.AreEqual($"{PlaylistServiceFactory.EndpointProvider.Users}/{id}/playlists", PlaylistServiceFactory.HttpService.Uri);
+            Assert.AreEqual(PlaylistServiceFactory.TokenService.ApiToken, PlaylistServiceFactory.HttpService.Token);
         }
     }
 }
