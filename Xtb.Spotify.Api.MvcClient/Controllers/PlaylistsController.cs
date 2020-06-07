@@ -32,7 +32,7 @@ namespace Xtb.Spotify.Api.MvcClient.Controllers
 
         public async Task<IActionResult> AddItem(string id, string trackUri)
         {
-            await playlistService.AddPlaylistItems(id, new List<string> { trackUri });
+            await playlistService.AddItems(id, new List<string> { trackUri });
             return RedirectToAction(nameof(Item), new { id = id });
         }
 

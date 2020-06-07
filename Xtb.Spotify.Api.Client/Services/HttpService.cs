@@ -12,6 +12,7 @@ namespace Xtb.Spotify.Api.Client.Services
     public class HttpService : IHttpService
     {
         private readonly string jsonContentType = "application/json";
+        private readonly string byteArrayContentType = "image/jpeg";
         private readonly HttpClient client;
         private readonly SerialisationSettingsProvider serialisationSettingsProvider;
         private readonly IAuthenticationDecorator authenticationDecorator;
@@ -63,9 +64,28 @@ namespace Xtb.Spotify.Api.Client.Services
 
         private ByteArrayContent CreatePayload<T>(T body)
         {
-            var json = JsonConvert.SerializeObject(body, serialisationSettingsProvider.Settings);
-            var content = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(json));
-            content.Headers.ContentType = new MediaTypeHeaderValue(jsonContentType);
+            // Do not initialise these variables, that way
+            // the compilter will moan if we forget to
+            // initialise them in one of the switch blocks
+            // -----
+            string payload;
+            string contentType;
+            // -----
+
+            switch (body)
+            {
+                case Byte[] byteArray:
+                    payload = Convert.ToBase64String(byteArray);
+                    contentType = byteArrayContentType;
+                    break;
+                default:
+                    payload = JsonConvert.SerializeObject(body, serialisationSettingsProvider.Settings);
+                    contentType = jsonContentType;
+                    break;
+            }
+
+            var content = new ByteArrayContent(System.Text.Encoding.UTF8.GetBytes(payload));
+            content.Headers.ContentType = new MediaTypeHeaderValue(contentType);
             return content;
         }
     }

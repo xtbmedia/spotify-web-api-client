@@ -19,7 +19,7 @@ namespace Xtb.Spotify.Api.Client.Services
             : base(httpService, tokenService, endpointProvider, serialisationSettingsProvider)
         {
         }
-
+        
         public async Task<Page<SimplePlaylist>> GetPlaylistsForCurrentUser()
         {
             var builder = new UriBuilder($"{EndpointProvider.Me}/playlists");
@@ -48,7 +48,7 @@ namespace Xtb.Spotify.Api.Client.Services
             return await ProcessResponseMessage<Page<Track>>(response);            
         }
 
-        public async Task<PlaylistSnapshot> AddPlaylistItems(string playlistId, IEnumerable<string> trackUris, int? position = null)
+        public async Task<PlaylistSnapshot> AddItems(string playlistId, IEnumerable<string> trackUris, int? position = null)
         {
             var builder = new UriBuilder($"{EndpointProvider.Playlists}/{playlistId}/tracks");
             var payload = new AddPlaylistItem { 
@@ -95,7 +95,7 @@ namespace Xtb.Spotify.Api.Client.Services
         public async Task<bool> RemoveItems(string playlistId, string snapshotId, IDictionary<string, int?> trackRefs)
         {
             var builder = new UriBuilder($"{EndpointProvider.Playlists}/{playlistId}/tracks");
-            var payload = new RemovePlaylistItem
+            var payload = new RemovePlaylistItems
             {
                 Uris = trackRefs.Select(s => new PlaylistItemReference { Uri = s.Key, Position = s.Value }),
                 SnaphotId = snapshotId
@@ -115,6 +115,51 @@ namespace Xtb.Spotify.Api.Client.Services
                 InsertBefore = insertBefore
             };
             var response = await HttpService.PutAsync(builder.Uri, TokenService.ApiToken, payload, CancellationToken.None);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<Playlist> CreatePlaylist(string userId, string name, bool? collaborative = false, string description = null)
+        {
+            var builder = new UriBuilder($"{EndpointProvider.Users}/{userId}/playlists");
+            var payload = new CreatePlaylist
+            {
+                Name = name,
+                Collaborative = collaborative,
+                Description = description
+            };
+            var response = await HttpService.PostAsync(builder.Uri, TokenService.ApiToken, payload, CancellationToken.None);
+            return await ProcessResponseMessage<Playlist>(response);
+        }
+
+        public async Task<bool> ReorderItems(string playlistId, int rangeStart, int insertBefore, string snapshotId = null, int? rangeLength = null)
+        {
+            var builder = new UriBuilder($"{EndpointProvider.Playlists}/{playlistId}/tracks");
+            var payload = new ReorderPlaylistItems
+            {
+                RangeStart = rangeStart,
+                InsertBefore = insertBefore,
+                RangeLength = rangeLength,
+                SnapshotId = snapshotId
+            };
+            var response = await HttpService.PostAsync(builder.Uri, TokenService.ApiToken, payload, CancellationToken.None);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> ReplaceItems(string playlistId, IEnumerable<string> uris)
+        {
+            var builder = new UriBuilder($"{EndpointProvider.Playlists}/{playlistId}/tracks");
+            var payload = new ReplacePlaylistItems
+            {
+                Uris = uris
+            };
+            var response = await HttpService.PostAsync(builder.Uri, TokenService.ApiToken, payload, CancellationToken.None);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> SetCoverImage(string playlistId, byte[] image)
+        {
+            var builder = new UriBuilder($"{EndpointProvider.Playlists}/{playlistId}/images");
+            var response = await HttpService.PutAsync(builder.Uri, TokenService.ApiToken, image, CancellationToken.None);
             return response.IsSuccessStatusCode;
         }
     }

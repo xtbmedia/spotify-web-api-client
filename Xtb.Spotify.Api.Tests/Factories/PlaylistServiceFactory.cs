@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text;
 using Xtb.Spotify.Api.Client.Providers;
 using Xtb.Spotify.Api.Client.Services;
